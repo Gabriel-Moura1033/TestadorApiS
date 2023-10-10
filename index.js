@@ -3,7 +3,7 @@ import enderecos from "./config/enderecos.js";
 import { encerraRepetidos } from "./tratamentos/configRepetidos.js";
 import { enviaEmailErro } from './controladores/enviaEmail.js'
 
-enviaEmailErro()
+await enviaEmailErro()
 encerraRepetidos(enderecos);
 
 for (let i = 0; i < enderecos.length; i++) {

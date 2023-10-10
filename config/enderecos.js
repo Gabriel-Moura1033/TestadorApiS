@@ -1,11 +1,15 @@
 const enderecos = [
     {
         nome: 'Meu Site',
-        endereco: 'www.gabriel-moura.com'
+        endereco: 'https://gabriel-moura.com'
     },
     {
-        nome: 'Facebook',
-        endereco: 'www.facebook.com'
+        nome: 'Advice Slip JSON API',
+        endereco: 'https://api.adviceslip.com/advice'
+    },
+    {
+        nome: 'The Rick and Morty API',
+        endereco: 'https://rickandmortyapi.com/'
     },
     
 ]

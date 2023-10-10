@@ -27,7 +27,7 @@ export async function consultarDados(dados) {
                           .request()
                           .query('SELECT * FROM Api_Testes WHERE Erros_Consecutivos >= 1');
       await sql.close()
-      return result.recordset
+      return result
     } catch (error) {
       console.error('Erro ao consultar dados:', error);
       await sql.close()

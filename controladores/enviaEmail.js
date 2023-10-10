@@ -1,17 +1,25 @@
-import nodemailer from 'nodemailer';
+import chalk from 'chalk';
 import { transporter } from '../config/emailConfig.js'
 import { consultarDadosErro } from '../query/consultarDados.js';
 import moment from 'moment-timezone';
+import dotenv from 'dotenv'
+dotenv.config()
 
 
 export async function enviaEmailErro() {
     
-    const dados = await consultarDadosErro()
+    const resultado =  await consultarDadosErro()
+    const dados = resultado.recordset
     const html = geraTabelaHtml(dados)
 
+    if(resultado.rowsAffected[0] === 0) {
+        console.log(chalk.cyanBright('Nenhum Erro para reportar'));
+        return
+    }
+
   const mailOptions = {
-    from: 'testaapi@gabriel-moura.com',
-    to: 'testaapi@gabriel-moura.com',
+    from: process.env.EMAIL,
+    to: process.env.EMAILPARA,
     subject: `TESTADOR: Erro reportado em ${dados.length} Api(s)`,
     text: '',
     html: html,
