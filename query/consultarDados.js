@@ -20,4 +20,18 @@ export async function consultarDados(dados) {
     }
   }
 
+  export async function consultarDadosErro() {
+    try {
+      const pool = await sql.connect(config);
+      const result = await pool
+                          .request()
+                          .query('SELECT * FROM Api_Testes WHERE Erros_Consecutivos >= 1');
+      await sql.close()
+      return result.recordset
+    } catch (error) {
+      console.error('Erro ao consultar dados:', error);
+      await sql.close()
+    }
+  }
+
 

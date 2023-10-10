@@ -1,6 +1,9 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 export const config = {
-    user: 'user_api',
-    password: 'Mudar123',
+    user: process.env.USERDB,
+    password: process.env.SENHADB,
     server: 'localhost', // Substitua pelo endereço do servidor SQL Server
    // port: 1443,
     database: 'Testa_Api',
