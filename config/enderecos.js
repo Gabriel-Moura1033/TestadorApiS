@@ -14,7 +14,25 @@ const enderecos = [
         endereco: 'https://rickandmortyapi.com/',
         metodo: 'get'
     },
-    
+    {
+        nome: 'Status 400 Bin',
+        endereco: 'https://httpbin.org/status/400',
+        metodo: 'get'
+    },
+    {
+        nome: 'Status 200 Bin',
+        endereco: 'https://httpbin.org/status/200',
+        metodo: 'get'
+    },
+    {
+        nome: 'Status 500 Bin',
+        endereco: 'https://httpbin.org/status/500',
+        metodo: 'get'
+    },
 ]
 
 export default enderecos;
+
+/* 
+    
+    */
