@@ -10,32 +10,22 @@ async function startApp() {
     loopReqHttp(enderecos)
     await enviaEmailErro()
   }
-  
-  // Função que executa loopVerificacoes a cada 5 minutos
-  function runLoopVerificacoes() {
+
+  async function runLoopS() {
     setInterval(async () => {
       await loopVerificacoes(enderecos);
-    }, 5 * 60 * 1000); // 5 minutos em milissegundos
-  }
-  
-  // Função que executa loopReqHttp a cada 5 minutos
-  function runLoopReqHttp() {
-    setInterval(async () => {
       await loopReqHttp(enderecos);
-    }, 5 * 60 * 1000); // 5 minutos em milissegundos
+    }, 1 * 60 * 1000); 
   }
   
-  // Função que executa enviaEmailErro a cada 15 minutos
   function runEnviaEmailErro() {
     setInterval(async () => {
       await enviaEmailErro();
-    }, 15 * 60 * 1000); // 15 minutos em milissegundos
+    }, 15 * 60 * 1000); 
   }
   
-  // Iniciar a função encerraRepetidos no início
+
   await startApp();
   
-  // Agendar as outras funções
-  runLoopVerificacoes();
-  runLoopReqHttp();
+  await runLoopS();
   runEnviaEmailErro();
