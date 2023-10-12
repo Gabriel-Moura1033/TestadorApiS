@@ -15,13 +15,13 @@ async function startApp() {
     setInterval(async () => {
       await loopVerificacoes(enderecos);
       await loopReqHttp(enderecos);
-    }, 1 * 60 * 1000); 
+    }, 1 * 30 * 1000); 
   }
   
   function runEnviaEmailErro() {
     setInterval(async () => {
       await enviaEmailErro();
-    }, 15 * 60 * 1000); 
+    }, 3600000); 
   }
   
 
