@@ -1,0 +1,1 @@
+Programa para verificar disponibilidade de API's automaticamente e notificar em caso de falha 
