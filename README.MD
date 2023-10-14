@@ -27,10 +27,12 @@ Antes de executar o sistema, certifique-se de ter o seguinte instalado:
    git clone https://github.com/seu-usuario/seu-repo.git
 
 2. Instale as dependências: 
+    ```bash
     npm install
 
 
 3. Configure o arquivo .env:
+    ```bash
     USERDB=
     SENHADB=
     SENHAEMAIL=
