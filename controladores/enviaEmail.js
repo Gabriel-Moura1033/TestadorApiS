@@ -45,7 +45,8 @@ function geraTabelaHtml (dados) {
         <th>Data Criação</th>
         <th>Último Sucesso</th>
         <th>Último Erro</th>
-        <th>Erros consecutivos</th>    
+        <th>Erros consecutivos</th>  
+        <th>Último Status Code</th>   
       </tr>`;
 
       dados.forEach((linha) => {
@@ -57,6 +58,7 @@ function geraTabelaHtml (dados) {
             <td>${showDateTimeFormat(linha.data_hora_ultimo_sucesso)}</td>
             <td>${showDateTimeFormat(linha.data_hora_ultimo_erro)}</td>
             <td>${linha.Erros_Consecutivos}</td>
+            <td>${linha.Ultimo_Status_Code}</td>
           </tr>`;
       });
     

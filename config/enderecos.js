@@ -29,6 +29,11 @@ const enderecos = [
         endereco: 'https://httpbin.org/status/500',
         metodo: 'get'
     },
+    {
+        nome: 'Status 404 Bin',
+        endereco: 'https://httpbin.org/status/404',
+        metodo: 'get'
+    },
 ]
 
 export default enderecos;

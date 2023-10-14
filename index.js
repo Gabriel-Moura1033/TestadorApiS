@@ -15,7 +15,7 @@ async function startApp() {
     setInterval(async () => {
       await loopVerificacoes(enderecos);
       await loopReqHttp(enderecos);
-    }, 1 * 30 * 1000); 
+    }, 1 * 15 * 1000); 
   }
   
   function runEnviaEmailErro() {
@@ -28,4 +28,4 @@ async function startApp() {
   await startApp();
   
   await runLoopS();
-  runEnviaEmailErro();
+  //runEnviaEmailErro();

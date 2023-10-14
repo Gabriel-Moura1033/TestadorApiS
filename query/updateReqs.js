@@ -10,10 +10,16 @@ export async function udpateErro(nome, endereco, sttsCode) {
         .input('endereco', sql.VarChar, endereco)
         .input('sttsCode', sql.Int, sttsCode)
         .query('UPDATE Api_Testes SET Sucessos_Consecutivos = 0, Erros_Consecutivos = Erros_consecutivos + 1, data_hora_ultimo_erro = GETUTCDATE(), Ultimo_Status_Code = @sttsCode Where nome = @nome and endereco = @endereco');
-      sql.close()
+      if(pool._connected === true) {
+        await sql.close()
+      }
     } catch (error) {
-      console.error('Erro ao inserir dados:', error);
-      sql.close()
+      console.log('Erro ao inserir dados(UpdateErro):', error);
+      udpateErro(nome, endereco, sttsCode)
+      console.log(error)
+      // if(pool._connected === true) {
+      //   await sql.close()
+      // }
     }
   }
   
@@ -27,10 +33,16 @@ export async function udpateErro(nome, endereco, sttsCode) {
         .input('endereco', sql.VarChar, endereco)
         .input('sttsCode', sql.Int, sttsCode)
         .query('UPDATE Api_Testes SET Sucessos_Consecutivos = isnull(Sucessos_Consecutivos, 0) + 1, Erros_Consecutivos = 0, data_hora_ultimo_sucesso = GETUTCDATE(), Ultimo_Status_Code = @sttsCode Where nome = @nome and endereco = @endereco');
-      sql.close()
+      if(pool._connected === true) {
+        await sql.close()
+      }
     } catch (error) {
-      console.error('Erro ao inserir dados:', error);
-      sql.close()
+      console.log ('Erro ao inserir dados(UpdateSucesso):', error);
+      updateSucesso(nome, endereco, sttsCode)
+      console.log(error)
+        // if(pool._connected === true) {
+        //   await sql.close()
+        // }
     }
   }
   

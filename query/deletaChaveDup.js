@@ -13,14 +13,18 @@ export async function deletaChaveDup(dados) {
         .input('nome', sql.VarChar, nome)
         .input('endereco', sql.VarChar, endereco)
         .query('Delete Api_Testes Where (Nome = @nome And Endereco <> @endereco) OR (Nome <> @nome And Endereco = @endereco)');
-      sql.close()
+      
+        if(pool._connected === true) {
+          await sql.close()
+        }
         if(result.rowsAffected[0] > 0) {
             console.log(chalk.red(`Excluido o registro do nome ${nome} pois o endereço mudou`))
-
-        }
+        } 
     } catch (error) {
-      console.error('Erro ao inserir dados:', error);
-      sql.close()
+      console.log('Erro ao inserir dados(deletaChaveDup):', error);
+      if(pool._connected === true) {
+        await sql.close()
+      }
     }
   }
   
