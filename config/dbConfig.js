@@ -4,7 +4,7 @@ dotenv.config()
 export const config = {
     user: process.env.USERDB,
     password: process.env.SENHADB,
-    server: 'localhost', 
+    server: '127.0.0.1', 
    // port: 1443,
     database: 'Testa_Api',
     options: {

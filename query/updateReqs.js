@@ -14,9 +14,8 @@ export async function udpateErro(nome, endereco, sttsCode) {
         await sql.close()
       }
     } catch (error) {
-      console.log('Erro ao inserir dados(UpdateErro):', error);
       udpateErro(nome, endereco, sttsCode)
-      console.log(error)
+      //console.log(error)
       // if(pool._connected === true) {
       //   await sql.close()
       // }
@@ -37,12 +36,7 @@ export async function udpateErro(nome, endereco, sttsCode) {
         await sql.close()
       }
     } catch (error) {
-      console.log ('Erro ao inserir dados(UpdateSucesso):', error);
       updateSucesso(nome, endereco, sttsCode)
-      console.log(error)
-        // if(pool._connected === true) {
-        //   await sql.close()
-        // }
     }
   }
   
